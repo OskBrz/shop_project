@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    background-color: #739072;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+header{
+    background-color: #4F6F52;
+    color: #ECE3CE;
+    height: 60px;
+    font-size: 48px;
+    font-weight: normal;
+    font-family: 'Haettenschweiler';
+    letter-spacing: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product{
+    height: 500px;
+    max-height: 500px;
+    width: 350px;
+    background-color: #4F6F52;
+    border: groove 2px black;
+    margin: 20px;
+    display: inline-block;
+    overflow: hidden;
+}
+.product img{
+    width: 350px;
+    height: 300px;
+    overflow-y: hidden;
+    object-fit:fill;
+}
+.ptrow{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #4F6F52;
+    width: 350px;
+    margin: 0;
+    height: 190px;
+    position: relative;
+    top: 0;
+}
+.ptrow *{
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Bahnschrift;
+    color: #ECE3CE;
+}
+.product-price{
+    font-size: 32px;
+    font-weight: bold;
+}
+.product-title{
+    margin-top: 0px;
+    font-size: 24px;
+}
+.product-category{
+    font-size: 18px;
+    font-weight: lighter;
+}
