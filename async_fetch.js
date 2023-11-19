@@ -1,8 +1,7 @@
-//TODO: 6 product pages shown from json, onclick show a single product page that you can add to cart, once added the product stock should go down by 1
 async function fetchData(url) {
     return new Promise(async(resolve,reject) => {
         try{
-            const response = await fetch(url);
+            const response = await fetch(url,{mode:"no-cors"});
             if(!response.ok){
                 throw new Error(`Blad pobierania danych: ${response.statusText}`);
             }
@@ -36,6 +35,10 @@ function ProductBuilder(product) {
     const productCategory = product.data.category;
 
     var productDiv = document.createElement("div");
+    productDiv.addEventListener("click",function(){
+       location.href = `http://localhost/Balawender/17.11.23/products/${product.id}.html`;
+       console.log("ProductDIV function");
+    });
     productDiv.className = "product";
 
     var imgElement = document.createElement("img");

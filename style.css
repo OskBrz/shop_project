@@ -36,6 +36,9 @@ header{
     overflow-y: hidden;
     object-fit:fill;
 }
+.product:hover{
+    cursor: pointer;
+}
 .ptrow{
     display: flex;
     flex-direction: column;
