@@ -1,0 +1,139 @@
+body{
+    margin: 0;
+    background-color: #739072;
+    color: #ECE3CE;
+}
+header{
+    background-color: #4F6F52;
+    color: #ECE3CE;
+    height: 60px;
+    font-size: 48px;
+    font-weight: normal;
+    font-family: 'Haettenschweiler';
+    letter-spacing: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer{
+    background-color: #4F6F52;
+    color: #ECE3CE;
+    height: 60px;
+    font-size: 48px;
+    font-weight: normal;
+    font-family: 'Haettenschweiler';
+    letter-spacing: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+}
+main{
+    display: flex;
+}
+.leftdiv{
+    border: 2px black ridge;
+    border-right: none;
+    width: 50%;
+    height: 500px;
+    text-align: center;
+}
+.rightdiv{
+    border: 2px black ridge;
+    width: 50%;
+    height: 500px;
+    padding-left: 10px;
+}
+.productinfo{
+
+}
+.price{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+.desc{
+    font-size: 18px;
+}
+.stock{
+    margin-left: 0%;
+}
+.CartButton{
+    margin-top: 4px;
+    margin-left: 4px;
+    padding: 8px;
+    background-color: #4F6F52;
+    color: #ECE3CE;
+    border: none;
+    cursor: pointer;
+}
+.hr{
+    width: 100%;
+    height: 0px;
+    border: 1px ridge white;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+.title{
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+.titlediv{
+    margin-left: -10px;
+    width: 101.6%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.leftdiv .mainImage{
+    margin-top: 10px;
+    width: 400px;
+    height: 400px;
+    overflow-y: hidden;
+    object-fit:fill;
+    border: groove 1px black;
+}
+.imgselect{
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    border: 2px ridge black;
+    cursor: pointer;
+}
+.imageslider{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+}
+.fade-in{
+    animation: fadeIn 0.7s;
+}
+@keyframes fadeIn{
+    0%{opacity: 0.4;}
+    100%{opacity: 1;}
+}
+.sizechoice{
+    margin-top: -15px;
+    padding-top: 0px;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin-left: 0px;
+}
+.SizeButton{
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #4F6F52;
+    color: #ECE3CE;
+    border: 1px solid black;
+    margin: 0px 3px;
+    cursor: pointer;
+}
