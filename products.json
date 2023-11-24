@@ -21,7 +21,7 @@
           "name": "Casual White Shirt",
           "price": "$39.99",
           "description": "A comfortable and stylish white shirt.",
-          "images": ["http://localhost/Balawender/17.11.23/Images/Shirts/depositphotos_19858499-stock-photo-blank-white-t-shirt-with.jpg"],
+          "images": ["http://localhost/Balawender/17.11.23/Images/Shirts/depositphotos_19858499-stock-photo-blank-white-t-shirt-with.jpg","http://localhost/Balawender/17.11.23/Images/Shirts/1209557-tshirt-stussy-stock-logo-black.jpg"],
           "sizes": {
             "S": 15,
             "M": 25,
@@ -36,7 +36,7 @@
           "name": "Plain Black Shirt",
           "price": "$24.99",
           "description": "A casual plain black shirt for a sporty look.",
-          "images": ["http://localhost/Balawender/17.11.23/Images/Shirts/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg"],
+          "images": ["http://localhost/Balawender/17.11.23/Images/Shirts/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg","http://localhost/Balawender/17.11.23/Images/Shirts/pol_pl_Stussy-koszulka-t-shirt-Stock-black-SU16-20511_1.jpg"],
           "sizes": {
             "S": 18,
             "M": 22,
@@ -51,7 +51,7 @@
           "name": "Graphic Black T-shirt",
           "price": "$19.99",
           "description": "A trendy black graphic T-shirt for a fashionable statement.",
-          "images": ["http://localhost/Balawender/17.11.23/Images/Shirts/pol_pl_Stussy-koszulka-t-shirt-Stock-black-SU16-20511_1.jpg"],
+          "images": ["http://localhost/Balawender/17.11.23/Images/Shirts/pol_pl_Stussy-koszulka-t-shirt-Stock-black-SU16-20511_1.jpg","http://localhost/Balawender/17.11.23/Images/Shirts/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg"],
           "sizes": {
             "S": 25,
             "M": 20,

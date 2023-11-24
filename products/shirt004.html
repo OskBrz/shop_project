@@ -1,0 +1,175 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title"></title>
+    <link rel="stylesheet" href="product-style.css">
+</head>
+<body>
+    
+    <header>
+        SKLEP
+    </header>
+    
+    <main>
+
+        <div class="leftdiv" id="leftdiv">
+            <img src="" alt="Product Image" id="mainImage" class="mainImage">
+            <div id="imageslider" class="imageslider">
+
+            </div>
+        </div>
+
+        <div class="rightdiv" id="rightdiv">
+            <div class="titlediv" id="titlediv"><p id="ProductTitle" class="title"></p> <div class="hr"></div></div>
+            
+            <div class="productinfo">
+                <p id="ProductPrice" class="price"></p>
+                <p id="ProductStock" class="stock"></p>
+                <p id="ProductDesc" class="desc"></p>
+            </div>
+            
+            <div id="Size" class="sizechoice">
+
+            </div>
+            
+            <input type="button" value="Add to Cart" class="CartButton" id="CartButton">
+        </div>
+
+    </main>
+    
+    <footer>
+        
+    </footer>
+    
+
+    <script>
+        async function fetchData(url) {
+            return new Promise(async(resolve,reject) => {
+                try{
+                    const response = await fetch(url,{mode:"no-cors"});
+                    if(!response.ok){
+                        throw new Error(`Blad pobierania danych: ${response.statusText}`);
+                    }
+                    const data = await response.json();
+                    resolve(data);
+                }catch(error){
+                    console.error(`Wystapil blad: ${error.message}`);
+                    reject(error);
+                }
+        
+        });
+        }
+        
+        const apiUrl = "http://localhost/Balawender/17.11.23/products.json";
+        fetchData(apiUrl)
+        .then((jsonData)=>{
+            //FUNCTIONS AND EVERYTHING ELSE HAPPENS HERE!!!!!!!!!!!!!!
+            const Product = jsonData.shirts[3]; //SET PRODUCT NUMBER HERE
+            console.log(Product)
+            SetProductData(Product);
+            SizeButtons(Product.data.sizes);
+        }).catch((error)=>{
+            console.error("Wystapil blad pobierania danych: ", error);
+        });
+        function SetProductData(product){
+
+            var title = document.getElementById("ProductTitle");
+            var stock = document.getElementById("ProductStock");
+            var price = document.getElementById("ProductPrice");
+            var stock = document.getElementById("ProductStock");
+            var desc = document.getElementById("ProductDesc");
+            var MainImage = document.getElementById("mainImage");
+            var ImagesSlider = document.getElementById("imageslider");
+
+            const leftdiv = document.getElementById("leftdiv");
+            const rightdiv = document.getElementById("rightdiv");
+            const imageslider = document.getElementById("imageslider");
+            MainImage.src = product.data.images[0];
+            title.innerText = product.data.name;
+            price.innerText = product.data.price;
+            desc.innerText = product.data.description;
+
+            var LastPickedSize;
+            const CartButton = document.getElementById("CartButton");
+            CartButton.addEventListener("click",function(){AddToCart(product)});
+            
+            for(let i=0;i<product.data.images.length;i++){
+                const imgSelect = document.createElement("img");
+                imgSelect.classList.add("imgselect");
+                imgSelect.src = product.data.images[i];
+                if(MainImage.src == imgSelect.src){
+                    imgSelect.style.border = "3px solid rgb(242,0,0)";
+                }
+                imageslider.appendChild(imgSelect);
+                imgSelect.addEventListener("click",function(){
+                    changeImage(imgSelect.src);
+                }, false);
+            }
+            
+        }
+        
+        function changeImage(imag){
+            
+            const MainImage = document.getElementById("mainImage");
+            var Images = document.getElementsByClassName("imgselect");
+            if(MainImage.src != imag){
+
+                MainImage.classList.add("fade-in");
+                MainImage.src = imag;
+                
+                for(let i=0;i<Images.length;i++){
+                    let img1 = Images.item(i);
+                    img1.style.border = "2px ridge black";
+                    if(img1.src == MainImage.src) img1.style.border = "3px solid red";
+                }
+
+            }
+            setTimeout(function(){MainImage.classList.remove("fade-in");},700);
+            
+        }
+
+        function SizeButtons(data){
+            var buttons = document.getElementsByClassName("SizeButton");
+            SizeChange(data["S"],buttons[0]);
+            for(var p1 in data){
+                //console.log(p1); // KEY
+                //console.log(data[p1]); // VALUE
+
+                var sizeChoice = document.getElementById("Size");
+                var btn1 = document.createElement("button");
+
+                btn1.classList.add("SizeButton");
+                btn1.innerText = p1;
+                
+                sizeChoice.appendChild(btn1);
+            }
+            buttons[0].addEventListener("click",function(){SizeChange(data["S"],buttons[0])});
+            buttons[1].addEventListener("click",function(){SizeChange(data["M"],buttons[1])});
+            buttons[2].addEventListener("click",function(){SizeChange(data["L"],buttons[2])});
+        }
+        
+        function SizeChange(val,btn1){
+            const buttons = document.getElementsByClassName("SizeButton");
+            const stock = document.getElementById("ProductStock");
+            stock.innerHTML = val;
+            for(let i=0;i<buttons.length;i++){
+                buttons[i].style.border = "1px solid black"
+                if(buttons[i]==btn1){
+                buttons[i].style.border = "1px solid #ECE3CE"
+                LastPickedSize = buttons[i].innerHTML;
+                }
+            }
+        }
+
+        function AddToCart(product){
+            const stock = document.getElementById("ProductStock");
+            stock.innerHTML = stock.innerHTML-1;
+            product.data.sizes[LastPickedSize]--;
+            //product.data.sizes[LastPickedSize] is the stock amount of the last picked size
+            //for some reason doesnt change the value in the json after refreshing
+        }
+        
+    </script>
+</body>
+</html>
